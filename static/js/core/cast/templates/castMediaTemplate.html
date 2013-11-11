@@ -1,0 +1,33 @@
+<!-- castMediaTemplate.html -->
+
+<% if (media.cast.allowed_edit === true) { %>
+    <ul class="media-list"></ul>  
+    
+    <div class="btn-group">
+        <button type="button" id="photo-chooser-cast-<%= media.cast.id %>" class="btn" title="select file"><i class="icon-camera"></i> Add A Photo</button>
+        <button type="button" id="video-chooser-cast-<%= media.cast.id %>" class="btn"  title="select file"><i class="icon-film"></i> Add A Video</button>
+        <button type="button" id="link-chooser-cast-<%= media.cast.id %>" class="btn link-media" ><i class="icon-globe"></i> Link To Media</button>
+    </div>
+
+    <div id="video-uploader-cast-<%= media.cast.id %>" class="locast-upload-box hide"></div>
+    <div id="photo-uploader-cast-<%= media.cast.id %>" class="locast-upload-box hide"></div>
+
+    <div id="uploader-modal-cast-<%= media.cast.id %>" class="modal hide fade">
+        <div class="upload-form-list modal-body"></div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger cancel">Cancel</button>
+            <button type="button" class="btn upload-form-list-submit">Upload</button>
+        </div> 
+    </div>
+
+    <div id="linker-modal-cast-<%= media.cast.id %>" class="modal hide fade">
+        <div class="link-form-list modal-body"></div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger cancel">Cancel</button>
+        </div>
+    </div>
+
+<% } else { %>
+    <ul class="media-list"></ul>
+<% } %>
+

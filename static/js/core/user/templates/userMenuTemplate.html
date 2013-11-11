@@ -1,0 +1,27 @@
+<!-- userMenuTemplate.html -->
+
+ <div class="login-info dropdown">
+
+<% if (user.id) { %>
+
+    <a class="dropdown-toggle" href="#!/user/<%= user.id %>/" id="dLabel" role="button" data-toggle="dropdown" data-target="#"  >
+        <% if (user.user_image) { %>
+            <div class="image-frame user-image"><img src="<%= user.user_image %>" /></div>
+        <% } %>
+            <span class="name "><%= user.display_name %></span>
+    </a>
+  
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" >
+        <li class="login-info-item"><a id="edit-profile-link" href="#"><%= gettext('Edit Profile') %></a></li>
+        <li class="login-info-item"><a id="edit-profile-link" href="#!/user/<%= user.id %>/" ><%= gettext('View Profile') %></a></li>
+        <li class="divider"></li>
+        <li class="login-info-item"><a id="logout-link" class="locast-button" href="logout/"><%= gettext('Logout') %></a></li>
+    </ul>
+    
+<% }else{ %>
+
+    <a id="login-link" class="locast-login locast-button"><%= gettext('Login / Register') %></a>
+
+<% } %>
+
+</div>

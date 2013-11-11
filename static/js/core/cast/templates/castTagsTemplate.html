@@ -1,0 +1,17 @@
+<!-- castTagsTemplate.html -->
+
+<% if (tags.cast.allowed_edit === true) { %>
+    
+    <ul class="tag-list"></ul>
+
+    <form id="tag-form-cast-<%= tags.cast.id %>" class="cast-edit tag-edit" method="post"> 
+        <label for="id_tags">Add Tags</label>
+        <input id="id_tags" autocomplete="off" type="text" maxlength="200" name="tags" class="locast-textfield">
+        <p class="locast-help">seperate tags with a comma</p>
+        <button type="submit" value="add tags" class="btn submit" >Add Tags</button>
+    </form>
+
+<% } else { %>
+    <ul class="tag-list"></ul>
+<% } %>
+

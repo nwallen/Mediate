@@ -1,0 +1,17 @@
+<!-- castMediaUploadFormTemplate.html -->
+
+<form id="upload-form-<%= form.fileId %>" class="cast-media-form" method="post">
+    <input type="text" value="<%= form.title %>" maxlength="160" name="title" class="locast-textfield">
+     <sub class="upload-file"><%= form.title %> (<%= form.fileSize %>)</sub>
+     <button type="button"  value="delete" class="btn remove-media">Remove</button>
+     <div id="upload-error"></div>
+    <div id="upload-progress" class="progress">
+        <div class="bar"></div>
+    </div>
+    
+        
+    <input type="hidden" name="content_type" value="<%= form.content_type %>"></input>
+    <input type="hidden" name="fileId" value="<%= form.fileId %>"></input> 
+</form>
+
+   

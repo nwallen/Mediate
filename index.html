@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Mediate</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta http-equiv="content-language" content="EN" />
+    
+    <!-- Force IE to render in standards mode -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+
+    <!-- CSS FOR LIBRARIES -->
+    
+    <link type="text/css" href="static/js/libs/pagedown/editor.css" rel="stylesheet" media="screen, projection" />
+    <link type="text/css" href="static/js/libs/bootstrap/bootstrap-components.css" rel="stylesheet" media="screen, projection" />
+    <link rel="stylesheet" href="http://releases.flowplayer.org/5.2.0/skin/minimalist.css" />
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.4/leaflet.css" />
+     <!--[if lte IE 8]>
+         <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.4/leaflet.ie.css" />
+     <![endif]-->
+   
+     <!-- MAIN CSS -->
+    
+    <link type="text/less" href="static/less/styles.less" rel="stylesheet" media="screen, projection" />
+  
+
+    <script type="text/javascript" src="static/globals.js"></script>
+    <script data-main="static/js/locast" src="static/js/libs/require/require.js"></script>
+
+</head>
+<body id="locast-app">
+
+
+<header>
+
+    <!-- HEADER -->
+
+    <div id="header-content" class="row-fluid">
+
+        <div class="span6"> 
+            <a href="/#!/home/"><h1 class="logo" id="project-logo">THE SITE TITLE GOES HERE</h1></a>  
+            
+            <div id="search-bar">
+                <form class="locast-search">
+                    <input class="locast-textfield dynamic" id="search-input" type="text" AUTOCOMPLETE="off"></input>
+                </form>
+            </div>
+        </div>
+
+        <div id="header-nav" class="offset1 span5">
+            <div id="layer-switcher" class=" span8"></div>
+            <div id="login-bar" class="span4"></div>
+        </div>
+ 
+        <div id="search-results" class="span10 offset1 row-fluid"></div>
+        
+    </div>
+    <div id="search-results-overlay"></div> 
+</header>
+
+
+<div id="map" class="visualization"></div>
+<div id="cast-viz" class="visualization"></div>
+<div id="collection-viz" class="visualization"></div>
+<div id="user-viz" class="visualization"></div>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!-- castSingleMediaTemplate.html -->
+
+
+<% if (data.resources !== undefined || data.content_type === 'linkedmedia') { %>
+
+    <% if (data.content_type === 'videomedia') {%>
+        <% if(data.resources.web_stream) {%>
+            <div class="video-icon">
+                <i class="icon-play icon-white"></i>
+            </div> 
+            
+            <!-- TODO: GENERATE HTML5 COMPATIBLE VIDEO - CURRENTLY ONLY THE FLASH PLAYER WORKS -->
+            <div class="web_stream is-splash" data-engine="flash" >
+                <img src="<%= data.resources.screenshot.url %>" />
+                <video preload="none" src="<%= data.resources.web_stream.url %>"></video>
+            </div>
+
+            <div class="info media-info">
+                 <h6 class="title">
+                    <i class="icon-film icon-white"></i>  Media Title 
+                </h6>
+                <h6 class="duration"> 
+                    <i class="icon-time icon-white"></i> <%= data.duration %> 
+                </h6>
+                <h6 class="date"> 
+                     <%= data.modified %> 
+                </h6>
+            </div>
+        <% } %>
+    <% } %>
+
+    <% if (data.content_type === 'imagemedia' && data.resources.medium) {%>
+            <img src="<%= data.resources.medium.url %>" />
+            <div class="info media-info">
+                 <h6 class="title">
+                    <i class="icon-camera icon-white"></i>  Media Title 
+                </h6>
+                <h6 class="date"> 
+                     <%= data.modified %> 
+                </h6>
+            </div>
+    <% } %>
+    
+    <% if (data.content_type === 'linkedmedia') {%>
+            <!--<div class="video-icon">
+                <i class="icon-play icon-white"></i>
+            </div>-->
+            <a class="oembed_media" href="<%= data.url %>"><%= data.content_provider %></a>
+            <div class="info media-info">
+                 <h6 class="title">
+                    <i class="icon-globe icon-white"></i>  Media Title 
+                </h6>
+                <h6 class="date"> 
+                     <%= data.modified %> 
+                </h6>
+            </div>
+
+    <% } %>
+
+<% } else { %>
+    <div class="placeholder" >
+        <h6 class="title"><i class="icon-cog icon-white"></i>Media is Processing</h6>
+    </div>
+<% } %>
+
+<% if (data.allowed_edit) {%>
+    <button type="button" class="btn delete">Delete</button>
+    <div id="delete-modal-media-<%= data.id %>" class="modal hide fade">
+        <div class="modal-header">Delete Media ?</div>
+        <div class="modal-body"></div>
+        <div class="modal-footer">
+            <button type="button" class="btn cancel">Cancel</button>
+            <button type="button" class="btn btn-danger delete-confirm">Delete</button>
+        </div> 
+    </div>
+<% } %>
+

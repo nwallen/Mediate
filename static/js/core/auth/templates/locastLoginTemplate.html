@@ -1,0 +1,17 @@
+<!-- locastLoginTemplate.html -->
+
+<form id="login-form" class="cleared" action="">
+    <h2> <%= gettext('Login Required') %> </h2>
+
+    <div class="alert alert-error hide login"> 
+        <h4 class="alert-heading"><%= gettext('Your email and password did not match') %></h4> 
+    </div>  
+    <div class="alert alert-error hide username"> 
+        <h4 class="alert-heading"><%= gettext('Please enter your email') %></h4> 
+    </div> 
+    <input  type="text" maxlength="160" name="username" placeholder="Email" class="locast-textfield"></input>
+    <div class="alert alert-error hide password"> 
+        <h4 class="alert-heading"><%= gettext('Please enter your password') %></h4> 
+    </div> 
+    <input type="password" maxlength="160" name="password" placeholder="Password" class="locast-textfield"></input> 
+</form>

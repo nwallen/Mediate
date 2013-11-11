@@ -1,0 +1,30 @@
+<!-- castTitleTemplate.html -->
+
+<h2 class="title"> <%= cast.title %> </h2>
+
+<% if (cast.allowed_edit === true) { %>
+    <button class="btn edit-title"> Edit Title</button>
+<%}%>
+
+<h3 class="author"> <%= cast.author.display_name %> </h3>
+<h5 class="created"> <%= formattedDates.created %>  </h5>
+<h5 class="modified"> <%= formattedDates.modified %></h5>
+
+<% if (cast.allowed_edit === true) { %> 
+    
+    <form id="title-form-cast-<%= cast.id %>" class="cast-edit cast-description-edit modal hide fade" method="post"> 
+        <div class="modal-header">Edit Title</div>
+        <div class="modal-body">
+            <input id="title-input-<%= cast.id %>" type="text" value="<%= cast.title %>" name="title" class="locast-textfield" />        
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger cancel"> Cancel </button>
+            <button type="submit" value="update" class="btn submit">Update Title</button>
+
+        </div>
+    </form> 
+
+<% } else { %>
+        
+<% } %>
+

@@ -1,0 +1,20 @@
+<!-- castSingleCommentTemplate.html -->
+
+
+<a href="#!/user/<%= comment.data.author.id %>/">
+    <div class="comment-meta clearfix">
+        <%if (comment.data.author.profile.user_image_small) { %>
+            <img class="author-image" src="<%= comment.data.author.profile.user_image_small %>"/>
+        <% }else{ %>
+            <div class="author-image placeholder"><i class="icon icon-user icon-white"></i></div>
+        <%}%>
+        <h4 class="name"><%= comment.data.author.display_name %></h4>
+        <h6 class="date" title="<%= comment.data.created %>"><%= comment.data.created %></h6>
+    </div>
+</a>
+
+<button class="btn open">Expand</button>
+
+<div class="comment-content"><%= comment.html %></div>
+
+

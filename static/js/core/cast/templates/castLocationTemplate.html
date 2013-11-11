@@ -1,0 +1,32 @@
+<!-- castLocationTemplate.html -->
+
+<% if (cast.allowed_edit === true) { %>
+    <button class="btn edit-location"> Edit Location</button>
+<%}%>
+
+<div id="<%= mapID %>" style="width:300px; height:300px;" class="map hide"></div>
+
+<% if (cast.allowed_edit === true) { %> 
+    
+    <!--<div id="location-form-cast-<%= cast.id %>" class="cast-edit cast-location-edit modal hide fade"> 
+        <div class="modal-header">Edit Location</div>
+        <div class="modal-body">
+            <div id="location-edit-map-cast-<%= cast.id %>" class="map" style="width:300px; height:300px;"></div>     
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger cancel"> Cancel </button>
+            <button type="button" value="update" class="btn submit">Update Location</button>
+
+        </div>
+    </div>--> 
+
+
+
+    <form id="location-form-cast-<%= cast.id %>" class="cast-edit cast-location-edit hide" method="POST"> 
+            <button type="button" class="btn btn-danger cancel"> Cancel </button>
+            <button type="submit" value="update" class="btn submit">Update Location</button>
+    </form> 
+<% } else { %>
+        
+<% } %>
+

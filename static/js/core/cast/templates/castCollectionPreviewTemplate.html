@@ -1,0 +1,20 @@
+<!-- castCollectionPreviewTemplate.html -->
+
+<a href="#!/collection/<%= collection.id %>/">
+    <div id="collection-<%= collection.id %>" class="collection offset1 span10 row-fluid ">
+        <div class="collection-info info">
+            <h3 class="title" ><%= collection.title %></h3>
+        </div>
+            <div class="preview clearfix">
+                <div id="collection-list-preview_<%= collection.id %>" class="cast-previews">
+                    <% _.each(collection.castJSON, function (cast) { %>
+                        <% if(cast.preview_image != undefined){ %> 
+                            <img src="<%= cast.preview_image %>"/> 
+                        <% }else{ %>
+                            <div class="placeholder"><i class="icon icon-map-marker icon-white"></i> <h4 class="title"><%= cast.title %></h4> </div>
+                        <% } %>
+                    <% }) %>
+                </div>
+            </div>
+    </div>
+    </a>

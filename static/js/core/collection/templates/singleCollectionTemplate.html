@@ -1,0 +1,10 @@
+<!-- singleCollectionTemplate.html -->
+
+<div class="collection-info info">
+    <h3 class="title" ><%= collection.title %></h3>
+    <h5 class="description"><%= collection.description %> </h5>
+</div>
+<div id="collection-list-preview_<%= collection.id %>" class="collection-casts"></div>
+<div class="placeholder cast-count"> 
+    <h4><i class="icon-map-marker icon-white"></i> <%= collection.casts_count %> <%= gettext("Casts") %></h4>
+</div>

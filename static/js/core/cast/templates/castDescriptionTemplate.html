@@ -1,0 +1,28 @@
+<!-- castDescriptionTemplate.html -->
+
+
+
+
+<% if (description.cast.allowed_edit === true) { %>
+    
+    <%= description.Html %>
+    <button class="btn edit"> Edit Description</button>
+    
+    <form id="description-form-cast-<%= description.cast.id %>" class="cast-edit cast-description-edit modal hide fade" method="post"> 
+        <div class="modal-header">Edit <%= description.cast.title %> Description</div>
+        <div class="modal-body">
+            <div id="wmd-preview-<%= description.uniqueId %>"><%= description.Html %></div>
+            <div id="wmd-button-bar-<%= description.uniqueId %>"></div>
+            <textarea id="wmd-input-<%= description.uniqueId %>" type="text" name="description" class="locast-textfield"><%= description.Html %></textarea>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger cancel"> Cancel </button>
+            <button type="submit" value="update" class="btn submit">Update Description</button>
+
+        </div>
+    </form> 
+
+<% } else { %>
+    <%= description.Html %>
+<% } %>
+

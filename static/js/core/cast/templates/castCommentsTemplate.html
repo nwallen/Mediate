@@ -1,0 +1,17 @@
+<!-- castCommentsTemplate.html -->
+
+<% if (comments.cast.allowed_edit === true) { %>
+        
+    <div id="wmd-preview-<%= comments.uniqueId %>"></div> 
+    <div id="wmd-button-bar-<%= comments.uniqueId %>"></div>
+    <form id="comment-form-cast-<%= comments.cast.id %>">
+        <textarea id="wmd-input-<%= comments.uniqueId %>"name="content" cols="10" rows="2"></textarea> <br />
+        <button type="submit" value="post Comment" class="btn">Post Comment</button>   
+    </form>    
+    
+    <ul class="comment-list"></ul>  
+
+<% } else { %>
+    <ul class="comment-list"></ul>
+<% } %>
+

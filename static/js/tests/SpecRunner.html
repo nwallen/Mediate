@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Open Locast Tests</title>
+
+  <link rel="shortcut icon" type="image/png" href="lib/jasmine-1.2.0/jasmine_favicon.png">
+  <link rel="stylesheet" type="text/css" href="lib/jasmine-1.2.0/jasmine.css">
+  <script type="text/javascript" src="lib/jasmine-1.2.0/jasmine.js"></script>
+  <script type="text/javascript" src="lib/jasmine-1.2.0/jasmine-html.js"></script>
+
+  <script type="text/javascript">
+    var require = { 
+
+        baseUrl: '../',    
+
+        paths: {
+            domReady: 'libs/require/domReady',
+            jquery: 'libs/jquery/jquery-1.8.2.min',
+            underscore: 'libs/underscore/underscore-min',
+            backbone: 'libs/backbone/backbone-min',
+            backboneSubroute: 'libs/backbone/backbone-subroute',
+            leaflet: 'libs/leaflet/leaflet',
+            leafletMarkerCluster: 'libs/leaflet/markerCluster/leaflet.markercluster'
+        },
+
+          //support non-AMD libraries
+        shim: {
+            'underscore': {
+                exports: '_'
+            },
+            'backbone': {
+                deps: ['underscore', 'jquery'],
+                exports: 'Backbone'
+            },
+            'leaflet': {
+                exports: 'L'
+            },
+            'leafletMarkerCluster': ['leaflet']
+        }
+
+    };
+  </script>
+  
+  <script type="text/javascript" src="../libs/require/require.js"></script>
+  
+  <script type="text/javascript">
+
+        require(
+            
+            // load specs
+            [
+                // require domReady plugin starts jasmine reporter after DOM is ready
+                'domReady!',
+
+                // list specs to test
+                'tests/spec/core/LocastClassSpec',
+                'tests/spec/core/LocastViewSpec',
+            ],
+
+            // start the jasmine HTML reporter 
+            function( window ){
+                var jasmineEnv = jasmine.getEnv();
+                jasmineEnv.updateInterval = 1000;
+
+                var htmlReporter = new jasmine.HtmlReporter();
+
+                jasmineEnv.addReporter(htmlReporter);
+
+                jasmineEnv.specFilter = function(spec) {
+                    return htmlReporter.specFilter(spec);
+                };
+        
+                jasmineEnv.execute();
+            }
+        );
+
+  </script>
+ 
+</head>
+
+<body>
+</body>
+</html>

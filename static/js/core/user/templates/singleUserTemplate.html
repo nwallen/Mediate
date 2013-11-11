@@ -1,0 +1,15 @@
+<!-- singleUserTemplate.html -->
+
+<% if (user.profile) { %>
+    <% if (user.profile.user_image) { %>
+        <img class="author-image" src="<%= user.profile.user_image %>"/>
+    <% } %>
+<% } else { %>
+    <div class="author-image placeholder"><i class="icon icon-user icon-white"></i></div> 
+<% } %> 
+    <h4 class="name"><%= user.display_name %></h4>
+<% if (user.profile) { %>
+    <h4 class="hometown"><%= user.profile.hometown %></h4>
+<% } %> 
+
+<div class="user-casts"> </div>

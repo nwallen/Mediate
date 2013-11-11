@@ -1,0 +1,23 @@
+<!-- castAddFormTemplate.html -->
+
+<form id="cast-add-form" class="cleared" action="">
+    <h2> Start a new <%= lexicon.cast %> </h2>
+   
+    <h4> What is your <%= lexicon.cast %> called ? </h4>
+    <div class="alert alert-error hide title"> 
+        <h4 class="alert-heading">You must enter a title</h4> 
+         <sub> You can always change this later </sub>
+    </div> 
+    <input id="id_title" type="text" maxlength="160" name="title" placeholder="<%= lexicon.cast %> Title" class="locast-textfield"></input> <br />
+    <h4> Where is your <%= lexicon.cast %> located ? </h4>
+    <div class="alert alert-error hide location"> 
+         <h4 class="alert-heading">You must select a locaton</h4> 
+         <sub> You can always change this later </sub>
+    </div>
+    
+    <div id="new-cast-location-map" class="map" style="width:500px; height:250px;"></div>
+   
+    
+</form>
+
+   

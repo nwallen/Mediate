@@ -1,0 +1,26 @@
+<!-- castActionsTemplate.html -->
+
+<li class="favoriting"> <span class="number"><%= cast.favorites %></span> <button type="button" class="btn favorite <% if (cast.is_favorite){%> active <%}%>" ><% if (cast.is_favorite){%> Favorited <%}else{%> Favorite <%}%></button></li>
+
+<!-- NEED TO ADD is_flagged TO API RESPONSE -->
+<!--
+<li class="flagging"><button type="button" class="btn flag <% if (cast.is_flagged){%> active <%}%>" ><% if (cast.is_flagged){%> Flagged <%}else{%> Flag <%}%></button></li>
+-->
+
+<% if (cast.allowed_edit === true) { %>
+
+    <li class="deleting"><button type="button" class="btn btn-danger delete" >Delete</button></li>
+
+    <div class="delete-modal modal hide fade">
+        <div class="modal-header"> Delete &#8220;<%= cast.title %>&#8221; ? </div>
+
+        <div class="modal-body"> This will delete &#8220;<%= cast.title %>&#8221; and cannot be undone. </div>
+
+        <div class="modal-footer"> 
+            <button type="button" class="btn cancel"> Cancel </button> 
+            <button type="button" class="btn btn-danger confirm-delete"> Delete Forever </button>
+        </div>
+    </div>
+
+<%}%>
+
