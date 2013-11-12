@@ -67,7 +67,35 @@ module.exports = function(grunt) {
         files: '<%= jshint.lib_test.src %>',
         tasks: ['jshint:lib_test', 'qunit']
       }
+    },
+    less: {
+      deploy: {
+        options: {
+          paths: ["src/less/"],
+          compress: true
+        },
+        files: {
+          "build/static/css/main.css": "src/less/styles.less"
+        }
+      }
+
+    },
+    copy:{
+      main: {
+        files: [
+          {expand: true, cwd:'src/html/', src:'**', dest: 'build/'},
+          {expand: true, cwd:'src/img/', src:'**', dest: 'build/static/img'},
+        ]
+      }
+    },
+    browserify: {
+      deploy: {
+        files: {
+          'build/static/js/app.js':'src/refactored-js/**/*.js'
+        }
+      }
     }
+
   });
 
   // These plugins provide necessary tasks.
@@ -76,7 +104,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-requirejs');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-browserify');
+
+  grunt.registerTask('deploy', ['less:deploy', 'browserify:deploy', 'copy']);
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
